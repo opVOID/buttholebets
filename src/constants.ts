@@ -43,9 +43,6 @@ export const POOLS = [
   lp('So11111111111111111111111111111111111111112'),
   // USDC:
   lp('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
-  // Wormhole:
-  lp('85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ'),
-  lp('H8cstTfTxPEm5qP3UXgga8Bdzm2MCDGAghJTgovPy6Y1', 'H83nsJJe11WY7TjhiVoDq5xmiYs7rU2iY4FweJuahVz2'),
 ]
 
 // The default token to be selected
@@ -55,15 +52,16 @@ export const DEFAULT_POOL = POOLS[0]
  * List of token metadata for the supported tokens
  * Alternatively, we can provide a fetcher method to automatically fetch metdata. See TOKEN_METADATA_FETCHER below.
  */
-export const TOKEN_METADATA: (Partial<TokenMeta> & {mint: PublicKey})[] = [
+export const TOKEN_METADATA: (Partial<TokenMeta> & { mint: PublicKey })[] = [
+  // Add USDC metadata
   {
-    mint: new PublicKey('85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ'),
-    name: 'W',
-    symbol: 'Wormhole',
-    image: 'https://wormhole.com/token.png',
+    mint: new PublicKey('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
+    name: 'USDC',
+    symbol: 'USDC',
+    image: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png',
     baseWager: 1e6,
     decimals: 6,
-    usdPrice: 0,
+    usdPrice: 1, // Assumed price for USDC
   },
 ]
 
