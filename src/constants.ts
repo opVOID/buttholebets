@@ -6,7 +6,7 @@ export const RPC_ENDPOINT = import.meta.env.VITE_RPC_ENDPOINT ?? 'https://api.ma
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  'V2grJiwjs25iJYqumbHyKo5MTK7SFqZSdmoRaj8QWb9',
+  'A35outJG52f54vJCT4uoSJndyHTAgc3V3jj4NgRTwtxu',
 )
 
 // Gamba explorer URL - Appears in RecentPlays
@@ -25,7 +25,7 @@ export const PLATFORM_JACKPOT_FEE = 0.001 // 0.1%
 export const PLATFORM_REFERRAL_FEE = 0.0025 // 0.25%
 
 /** If the user should be able to revoke an invite after they've accepted an invite */
-export const PLATFORM_ALLOW_REFERRER_REMOVAL = true
+export const PLATFORM_ALLOW_REFERRER_REMOVAL = false
 
 // Just a helper function
 const lp = (tokenMint: PublicKey | string, poolAuthority?: PublicKey | string): PoolToken => ({
@@ -39,8 +39,6 @@ const lp = (tokenMint: PublicKey | string, poolAuthority?: PublicKey | string): 
  * For private pools, add the creator of the Liquidity Pool as a second argument
  */
 export const POOLS = [
-  // Fake token:
-  lp(FAKE_TOKEN_MINT),
   // SOL:
   lp('So11111111111111111111111111111111111111112'),
   // USDC:
@@ -58,15 +56,6 @@ export const DEFAULT_POOL = POOLS[0]
  * Alternatively, we can provide a fetcher method to automatically fetch metdata. See TOKEN_METADATA_FETCHER below.
  */
 export const TOKEN_METADATA: (Partial<TokenMeta> & {mint: PublicKey})[] = [
-  {
-    mint: FAKE_TOKEN_MINT,
-    name: 'Fake',
-    symbol: 'FAKE',
-    image: '/fakemoney.png',
-    baseWager: 1e9,
-    decimals: 9,
-    usdPrice: 0,
-  },
   {
     mint: new PublicKey('85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ'),
     name: 'W',
