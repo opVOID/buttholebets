@@ -1,5 +1,5 @@
 import { PublicKey } from '@solana/web3.js'
-import { FAKE_TOKEN_MINT, PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
+import { PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
 
 // Get RPC from the .env file or default to the public RPC.
 export const RPC_ENDPOINT = import.meta.env.VITE_RPC_ENDPOINT ?? 'https://api.mainnet-beta.solana.com'
@@ -25,7 +25,7 @@ export const PLATFORM_JACKPOT_FEE = 0.001 // 0.1%
 export const PLATFORM_REFERRAL_FEE = 0.0025 // 0.25%
 
 /** If the user should be able to revoke an invite after they've accepted an invite */
-export const PLATFORM_ALLOW_REFERRER_REMOVAL = false
+export const PLATFORM_ALLOW_REFERRER_REMOVAL = true
 
 // Just a helper function
 const lp = (tokenMint: PublicKey | string, poolAuthority?: PublicKey | string): PoolToken => ({
